@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de Bienestar</title>
+    
+    <!-- Tailwind CSS para un diseño rápido y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts para una tipografía refinada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Estilos personalizados para refinar el diseño */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .glass-button {
+            /* Efecto de "vidrio esmerilado" para un toque moderno */
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .glass-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-button:active {
+            transform: translateY(-1px) scale(0.99);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Contenedor principal que centra el contenido en la pantalla -->
+    <div class="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-blue-50">
+
+        <!-- Contenedor de la lista de opciones -->
+        <div class="w-full max-w-md mx-auto space-y-5">
+            
+            <h1 class="text-2xl font-bold text-center text-gray-700 mb-8">¿Cómo te podemos ayudar hoy?</h1>
+
+            <!-- Opción 1: Emergencia -->
+            <button class="glass-button group flex items-center w-full text-left p-4 rounded-2xl shadow-md">
+                <!-- Icono SVG para Emergencia -->
+                <div class="mr-4 flex-shrink-0 bg-red-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-lg text-red-800">Necesito ayuda urgente</h2>
+                    <p class="text-sm text-gray-600">Atención inmediata para situaciones críticas.</p>
+                </div>
+            </button>
+
+            <!-- Opción 2: Ansiedad o Estrés -->
+            <button class="glass-button group flex items-center w-full text-left p-4 rounded-2xl shadow-md">
+                <!-- Icono SVG para Ansiedad -->
+                <div class="mr-4 flex-shrink-0 bg-yellow-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-lg text-yellow-800">Me siento con ansiedad o estrés</h2>
+                    <p class="text-sm text-gray-600">Herramientas y técnicas para recuperar la calma.</p>
+                </div>
+            </button>
+
+            <!-- Opción 3: Tristeza o Desánimo -->
+            <button class="glass-button group flex items-center w-full text-left p-4 rounded-2xl shadow-md">
+                <!-- Icono SVG para Tristeza -->
+                <div class="mr-4 flex-shrink-0 bg-blue-100 rounded-full p-3">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-lg text-blue-800">Me siento triste o sin ánimo</h2>
+                    <p class="text-sm text-gray-600">Apoyo y recursos para levantar el espíritu.</p>
+                </div>
+            </button>
+            
+            <!-- Opción 4: Dificultad para dormir -->
+            <button class="glass-button group flex items-center w-full text-left p-4 rounded-2xl shadow-md">
+                <!-- Icono SVG para Dormir -->
+                <div class="mr-4 flex-shrink-0 bg-indigo-100 rounded-full p-3">
+                     <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </div>
+                <div>
+                    <h2 class="font-semibold text-lg text-indigo-800">Me cuesta dormir</h2>
+                    <p class="text-sm text-gray-600">Consejos para un mejor descanso nocturno.</p>
+                </div>
+            </button>
+
+        </div>
+    </div>
+    
+    <script>
+        // Lógica de JavaScript para añadir interactividad
+        document.querySelectorAll('.glass-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const title = button.querySelector('h2').innerText;
+                console.log(`Opción seleccionada: "${title}"`);
+                
+                // Aquí podrías añadir la lógica para redirigir a otra página,
+                // mostrar un modal, o iniciar un chat, dependiendo de la
+                // funcionalidad de tu aplicación.
+                // Por ejemplo: window.location.href = '/ayuda-urgente';
+            });
+        });
+    </script>
+
+</body>
+</html>

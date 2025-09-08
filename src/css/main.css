@@ -1,0 +1,114 @@
+/* Importa las capas base, de componentes y de utilidades de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aquí puedes añadir tus estilos personalizados globales si los necesitas */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f2; /* Suave verde manzana */
+    color: #3d4a59; /* Un gris azulado oscuro */
+}
+.font-lora {
+    font-family: 'Lora', serif;
+}
+.parallax-bg {
+    background-image: url('https://i.imgur.com/rsRK7ER.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#booking {
+     background-image: url('https://i.imgur.com/VyeTUA8.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-attachment: fixed;
+}
+/* Colores personalizados */
+.text-verde-oscuro { color: #4A5C44; }
+.bg-verde-oscuro { background-color: #4A5C44; }
+.hover\:bg-verde-oscuro-hover:hover { background-color: #3A4734; }
+
+#header-nav.scrolled {
+    background-color: rgba(74, 92, 68, 0.85); /* bg-verde-oscuro with glassmorphism */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Clase personalizada para filtro backdrop */
+.backdrop-sepia-50 {
+    --tw-backdrop-sepia: sepia(50%);
+    backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+}
+
+/* Animaciones de entrada */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Estilo para los nuevos botones de booking */
+.booking-option {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem; /* 8px */
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease-in-out;
+    text-align: center;
+    font-weight: 500;
+}
+.booking-option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+/* Media Query para la imagen del Hero en móviles */
+@media (max-width: 768px) {
+    .parallax-bg {
+        /* Desplaza la imagen horizontalmente para centrar a la doctora en pantallas verticales */
+        background-position: 75% center; 
+    }
+}
+
+/* Estilos para el test de ansiedad */
+.card-container {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.card-entering {
+    opacity: 0;
+    transform: translateY(20px);
+}
+.card-exiting {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.progress-bar-inner {
+    transition: width 0.5s ease-in-out;
+}
