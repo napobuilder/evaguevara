@@ -74,7 +74,6 @@ function displayQuestion() {
         const progressPercentage = ((currentQuestionIndex) / questions.length) * 100;
         document.getElementById('progress-bar').style.width = `${progressPercentage}%`;
 
-        questionContainer.classList.add('card-entering');
         document.getElementById('question-text').textContent = question.text;
         
         const answerButtonsContainer = document.getElementById('answer-buttons');
@@ -85,14 +84,10 @@ function displayQuestion() {
         currentAnswers.forEach(answer => {
             const button = document.createElement('button');
             button.textContent = answer.text;
-            button.classList.add('w-full', 'bg-white', 'border', 'border-gray-200', 'hover:bg-verde-oscuro', 'hover:text-white', 'hover:border-verde-oscuro', 'text-gray-700', 'font-semibold', 'py-4', 'px-4', 'rounded-xl', 'transition-all', 'duration-300', 'text-left', 'sm:text-center', 'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-verde-oscuro/50');
+            button.classList.add('w-full', 'bg-white', 'border', 'border-gray-200', 'hover:bg-gray-100', 'hover:border-gray-300', 'text-gray-700', 'font-semibold', 'py-4', 'px-4', 'rounded-xl', 'transition-colors', 'duration-200', 'text-left', 'sm:text-center', 'focus:outline-none', 'focus:ring-2', 'focus:ring-offset-2', 'focus:ring-verde-oscuro/50');
             button.onclick = () => selectAnswer(answer.score);
             answerButtonsContainer.appendChild(button);
         });
-
-        setTimeout(() => {
-            questionContainer.classList.remove('card-entering');
-        }, 10);
 
     } else {
         showContactForm();
@@ -102,13 +97,7 @@ function displayQuestion() {
 function selectAnswer(score) {
     scores.push(score);
     currentQuestionIndex++;
-    
-    questionContainer.classList.add('card-exiting');
-
-    setTimeout(() => {
-        questionContainer.classList.remove('card-exiting');
-        displayQuestion();
-    }, 500);
+    displayQuestion();
 }
 
 function goBack() {
