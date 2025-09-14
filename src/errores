@@ -1,0 +1,4 @@
+(index):64 cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation
+(anonymous) @ (index):64
+ansiedad:103 Error: <path> attribute d: Expected number, "…7-.007-.373-.011h-.104c-.303 0-.…".
+ansiedad-test.js:1  Failed to load resource: the server responded with a status of 404 ()

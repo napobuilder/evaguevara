@@ -4,111 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuestionario de Depresión (PHQ-9) - Dra. Eva Guevara</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/favicon_io/site.webmanifest">
+    <link rel="shortcut icon" href="/favicon_io/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/main.css">
 </head>
-<body class="bg-[#f4f7f2] flex items-center justify-center min-h-screen p-4">
+<body class="bg-[#f4f7f2] flex flex-col min-h-screen">
 
-    <div class="w-full max-w-2xl mx-auto my-8">
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="w-full max-w-2xl mx-auto my-8">
 
-        <div class="mb-4 text-center">
-            <a href="index.html" class="inline-flex items-center text-gray-600 hover:text-verde-oscuro transition-colors text-sm font-medium">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Volver al Inicio
-            </a>
-        </div>
-        
-        <!-- Pantalla de Inicio -->
-        <div id="start-screen" class="card-container bg-white rounded-2xl shadow-lg p-8 text-center">
-            <h1 class="font-lora text-3xl font-bold text-gray-800 mb-4">Cuestionario de Salud del Paciente (PHQ-9)</h1>
-            <p class="text-gray-600 mb-6">
-                Durante las últimas <strong>2 semanas</strong>, ¿qué tan seguido ha tenido molestias debido a los siguientes problemas?
-                <br><br>
-                Por favor, indique su respuesta para cada síntoma.
-            </p>
-            <button id="start-btn" class="w-full bg-verde-oscuro hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-verde-oscuro/50">
-                Comenzar Evaluación
-            </button>
-            <p class="text-xs text-gray-400 mt-6">
-                Esta herramienta no es un diagnóstico. Es un paso previo para facilitar su consulta.
-            </p>
-        </div>
-
-        <!-- Pantalla del Test -->
-        <div id="test-screen" class="hidden">
-            <!-- Barra de Progreso y Navegación -->
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-2">
-                    <button id="back-btn" class="text-sm font-semibold text-verde-oscuro hover:text-gray-900 transition-colors flex items-center invisible p-2 -ml-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        Anterior
-                    </button>
-                    <span id="progress-text" class="text-sm font-semibold text-gray-600">Pregunta 1 de 10</span>
-                </div>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
-                    <div id="progress-bar" class="bg-verde-oscuro h-2.5 rounded-full" style="width: 0%;"></div>
-                </div>
+            <div class="text-center mb-8">
+                <a href="index.html"><img src="logo.png" alt="Logo Dra. Eva Guevara" class="h-16 mx-auto"></a>
             </div>
 
-            <!-- Contenedor de la Pregunta -->
-            <div id="question-container" class="card-container bg-white rounded-2xl shadow-lg p-8">
-                <h2 class="font-lora text-2xl font-bold text-center text-gray-800 mb-8" id="question-text"></h2>
-                <div id="answer-buttons" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Botones de respuesta se generan dinámicamente -->
-                </div>
+            <div class="mb-4 text-center">
+                <a href="index.html" class="inline-flex items-center text-gray-600 hover:text-verde-oscuro transition-colors text-sm font-medium">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    Volver al Inicio
+                </a>
             </div>
-        </div>
-
-        <!-- Pantalla de Formulario de Contacto -->
-        <div id="contact-screen" class="hidden card-container bg-white rounded-2xl shadow-lg p-8">
-            <h1 class="font-lora text-3xl font-bold text-gray-800 mb-2 text-center">¡Último paso!</h1>
-            <p class="text-gray-600 mb-8 text-center">
-                Por favor, completa tus datos para ver tus resultados y facilitar el agendamiento de tu cita.
-            </p>
-            <form id="contact-form" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
-                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
-                </div>
-                <div>
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Número de Teléfono</label>
-                    <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
-                </div>
-                <button type="submit" class="w-full bg-verde-oscuro hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-verde-oscuro/50">
-                    Ver mis Resultados
+            
+            <!-- Pantalla de Inicio -->
+            <div id="start-screen" class="card-container bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h1 class="font-lora text-3xl font-bold text-gray-800 mb-4">Cuestionario de Salud del Paciente (PHQ-9)</h1>
+                <p class="text-gray-600 mb-6">
+                    Durante las últimas <strong>2 semanas</strong>, ¿qué tan seguido ha tenido molestias debido a los siguientes problemas?
+                    <br><br>
+                    Por favor, indique su respuesta para cada síntoma.
+                </p>
+                <button id="start-btn" class="w-full bg-verde-oscuro hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-verde-oscuro/50">
+                    Comenzar Evaluación
                 </button>
-            </form>
-        </div>
-
-
-        <!-- Pantalla de Resultados -->
-        <div id="results-screen" class="hidden card-container bg-white rounded-2xl shadow-lg p-8 text-center">
-            <h1 class="font-lora text-3xl font-bold text-gray-800 mb-4">¡Listo para dar el siguiente paso!</h1>
-            <p class="text-gray-600 mb-6">Has completado la pre-evaluación. El siguiente paso es compartir tus resultados para coordinar una cita.</p>
-            
-            <div class="bg-gray-100 rounded-lg p-6 my-8">
-                <p class="text-lg text-gray-600">Tu puntuación de referencia es:</p>
-                <p id="final-score" class="text-7xl font-bold text-verde-oscuro my-2"></p>
-                <p id="score-interpretation" class="text-lg font-medium text-gray-800">Comparte este resultado con Eva Guevara para agendar tu cita.</p>
+                <p class="text-xs text-gray-400 mt-6">
+                    Esta herramienta no es un diagnóstico. Es un paso previo para facilitar su consulta.
+                </p>
             </div>
-            
-            <button id="whatsapp-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 flex items-center justify-center space-x-3">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.654 4.385 1.898 6.166l-1.29 4.721 4.753-1.241zM19.11 17.205c-.372 0-1.742-.887-2.013-1.002-.278-.12-.473-.189-.673.188-.201.377-.76 1.002-1.012 1.225-.254.223-.505.246-.912.083-.408-.163-1.643-.601-3.123-1.922-1.152-1.025-1.915-2.281-2.228-2.668-.313-.388-.033-.592.152-.781.168-.172.373-.437.533-.655.16-.217.213-.377.083-.656-.13-.278-.673-1.62-.924-2.206-.252-.586-.505-.501-.673-.51-.17-.007-.373-.011h-.104c-.303 0-.76.113-1.157.502-.396.389-1.516 1.488-1.516 3.641 0 2.152 1.545 4.22 1.768 4.515.223.296 3.041 4.652 7.39 6.554 4.349 1.902 4.349 1.268 5.126 1.181.777-.085 2.379-.97 2.707-1.828.33-.858.33-1.589.246-1.828-.082-.24-.302-.377-.673-.377z"></path></svg>
-                <span>Compartir Resultados para Agendar Cita</span>
-            </button>
-            <button id="restart-btn" class="mt-4 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300">
-                Realizar de Nuevo
-            </button>
-        </div>
 
-    </div>
+            <!-- Pantalla del Test -->
+            <div id="test-screen" class="hidden">
+                <!-- Barra de Progreso y Navegación -->
+                <div class="mb-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <button id="back-btn" class="text-sm font-semibold text-verde-oscuro hover:text-gray-900 transition-colors flex items-center invisible p-2 -ml-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            Anterior
+                        </button>
+                        <span id="progress-text" class="text-sm font-semibold text-gray-600">Pregunta 1 de 10</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div id="progress-bar" class="bg-verde-oscuro h-2.5 rounded-full" style="width: 0%;"></div>
+                    </div>
+                </div>
+
+                <!-- Contenedor de la Pregunta -->
+                <div id="question-container" class="card-container bg-white rounded-2xl shadow-lg p-8">
+                    <h2 class="font-lora text-2xl font-bold text-center text-gray-800 mb-8" id="question-text"></h2>
+                    <div id="answer-buttons" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <!-- Botones de respuesta se generan dinámicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pantalla de Formulario de Contacto -->
+            <div id="contact-screen" class="hidden card-container bg-white rounded-2xl shadow-lg p-8">
+                <h1 class="font-lora text-3xl font-bold text-gray-800 mb-2 text-center">¡Último paso!</h1>
+                <p class="text-gray-600 mb-8 text-center">
+                    Por favor, completa tus datos para ver tus resultados y facilitar el agendamiento de tu cita.
+                </p>
+                <form id="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Número de Teléfono</label>
+                        <input type="tel" id="phone" name="phone" required class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-verde-oscuro focus:border-verde-oscuro">
+                    </div>
+                    <button type="submit" class="w-full bg-verde-oscuro hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg text-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-verde-oscuro/50">
+                        Ver mis Resultados
+                    </button>
+                </form>
+            </div>
+
+
+            <!-- Pantalla de Resultados -->
+            <div id="results-screen" class="hidden card-container bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h1 class="font-lora text-3xl font-bold text-gray-800 mb-4">¡Listo para dar el siguiente paso!</h1>
+                <p class="text-gray-600 mb-6">Has completado la pre-evaluación. El siguiente paso es compartir tus resultados para coordinar una cita.</p>
+                
+                <div class="bg-gray-100 rounded-lg p-6 my-8">
+                    <p class="text-lg text-gray-600">Tu puntuación de referencia es:</p>
+                    <p id="final-score" class="text-7xl font-bold text-verde-oscuro my-2"></p>
+                    <p id="score-interpretation" class="text-lg font-medium text-gray-800">Comparte este resultado con Eva Guevara para agendar tu cita.</p>
+                </div>
+                
+                <button id="whatsapp-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 flex items-center justify-center space-x-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.654 4.385 1.898 6.166l-1.29 4.721 4.753-1.241zM19.11 17.205c-.372 0-1.742-.887-2.013-1.002-.278-.12-.473-.189-.673.188-.201.377-.76 1.002-1.012 1.225-.254.223-.505.246-.912.083-.408-.163-1.643-.601-3.123-1.922-1.152-1.025-1.915-2.281-2.228-2.668-.313-.388-.033-.592.152-.781.168-.172.373-.437.533-.655.16-.217.213-.377.083-.656-.13-.278-.673-1.62-.924-2.206-.252-.586-.505-.501-.673-.51-.17-.007-.373-.011h-.104c-.303 0-.76.113-1.157.502-.396.389-1.516 1.488-1.516 3.641 0 2.152 1.545 4.22 1.768 4.515.223.296 3.041 4.652 7.39 6.554 4.349 1.902 4.349 1.268 5.126 1.181.777-.085 2.379-.97 2.707-1.828.33-.858.33-1.589.246-1.828-.082-.24-.302-.377-.673-.377z"></path></svg>
+                    <span>Compartir Resultados para Agendar Cita</span>
+                </button>
+                <button id="restart-btn" class="mt-4 w-full bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-gray-300">
+                    Realizar de Nuevo
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-verde-oscuro text-white relative">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <img src="logo.png" alt="Logo Dra. Eva Guevara" class="h-16 mx-auto mb-2">
+            <p class="font-lora text-xl font-medium mb-4">Dra. Eva Guevara</p>
+            <p class="text-gray-400 mb-4">Médico Psiquiatra | Especialista en Psicoterapia Cognitivo Conductual y evaluación psicológica</p>
+            <p class="text-gray-400 mb-4">Psiquiatría Forense y atención de emergencias 24 horas en Caracas. Online y a domicilio.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.instagram.com/evaguevara27" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+            </div>
+            <p class="text-sm text-gray-400">&copy; 2025 Dra. Eva Guevara. Todos los derechos reservados.</p>
+            <p class="text-xs text-gray-400 mt-2">
+                Desarrollado por 
+                <a href="https://www.linkedin.com/in/napoleonbaca/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Napoleon Baca</a> de 
+                <a href="https://syntastudio.com/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">Synta Studio</a>
+            </p>
+        </div>
+    </footer>
 
     <script type="module" src="/src/js/depresion-test.js"></script>
 </body>
